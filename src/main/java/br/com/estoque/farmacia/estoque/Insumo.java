@@ -18,6 +18,11 @@ public class Insumo {
     }
 
     public void baixaEstoque(Integer quantidade) {
+
+        if (this.quantidade < quantidade){
+            throw new RuntimeException("O valor a baixar do estoque é menor que a quantidade disponivel");
+        }
+
         this.quantidade = this.quantidade - quantidade;
     }
     /**
@@ -25,5 +30,9 @@ public class Insumo {
      */
     @Deprecated
     public Insumo() {
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
     }
 }
